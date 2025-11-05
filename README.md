@@ -1,57 +1,69 @@
-# Life Cycle Project
+# 🏋️‍♀️ Calorie Burn Analysis
 
-## 🧪 Project Overview  
-This project analyses a life‑cycle dataset to uncover insights about the different stages and characteristics of the cycle under study. It uses Python (in a Jupyter Notebook) to handle data processing, visualization, and interpretation of results.
+## 📊 Project Overview  
+This project explores fitness data to analyze how different workout types, gender, body metrics, and heart rate influence **calories burned**.  
+Through data visualization and machine learning, the project identifies key patterns and features that most impact calorie expenditure.  
+It also demonstrates both **regression** (predicting calories burned) and **classification** (categorizing workouts into “Burns Calories” bins).
 
-## 🔍 Objectives  
-- Load and clean the dataset (`Final_data.csv`).  
-- Explore the data: understand structure, missing values, distributions.  
-- Visualize key relationships and patterns (e.g., feature correlations, stage transitions).  
-- Interpret the findings: what do the visuals tell us?  
-- Summarize conclusions and possible next‑steps or improvements.
+---
 
-## 📁 Files & Structure  
-- `Final_data.csv` – the processed dataset used for analysis.  
-- `life_cycle.ipynb` – Jupyter Notebook containing full workflow: import, cleaning, EDA, visualizations, interpretations.
+## 🧠 Objectives  
+- Understand relationships between workout parameters and calories burned.  
+- Visualize calorie distribution, workout comparisons, and gender differences.  
+- Create a correlation heatmap to find numeric dependencies.  
+- Build:
+  - A **Random Forest Regressor** for calorie prediction.  
+  - A **Random Forest Classifier** for binary calorie burn categorization.  
+- Identify **most important features** using feature importance analysis.
 
-## 🧮 Technologies Used  
-- Python  
-- Jupyter Notebook  
-- Libraries: `pandas`, `numpy`, `matplotlib`, `seaborn`, etc.
+---
 
-## 🧰 Workflow  
-1. Load the dataset and inspect its shape, columns, and summary statistics.  
-2. Handle missing values or inconsistencies (if any).  
-3. Visualize features: histograms, boxplots, correlation heatmap, scatter plots.  
-4. Interpret each visualization: what it reveals about the lifecycle process.  
-5. Draw conclusions: key findings, limitations, and potential future enhancements.
+## 🛠️ Technologies Used  
+- **Python**  
+- **Pandas, NumPy** – data cleaning and manipulation  
+- **Matplotlib, Seaborn** – visualization  
+- **Scikit-learn** – modeling and evaluation  
+- **Jupyter Notebook** – data exploration and analysis  
 
-## 🔍 Key Findings (Summary)  
-- For example: *“The correlation heatmap highlights a strong positive relationship between features A and B, suggesting…”*  
-- For example: *“The scatter plot of X vs Y shows a cluster in the early stage, indicating…”*  
-- (You’ll want to replace these with your actual insights.)
+---
 
-## 🚀 How to Run  
-1. Clone the repository:  
-   ```bash  
-   git clone https://github.com/siya-lalwani/life-cycle-project.git  
-   ```  
-2. Navigate into project folder and open the notebook:  
-   ```bash  
-   cd life-cycle-project  
-   jupyter notebook life_cycle.ipynb  
-   ```  
-3. Ensure required libraries are installed (e.g., via `pip install pandas numpy matplotlib seaborn`).  
-4. Run the notebook cells sequentially to reproduce the analysis, visuals and interpretations.
+## 📈 Key Visualizations  
+1. **Histogram** – Distribution of Calories Burned  
+2. **Boxplot** – Calories Burned by Workout Type  
+3. **Countplot** – Workout Frequency by Calorie Burn Category  
+4. **Scatterplot** – Calories vs Average Heart Rate  
+5. **Barplot** – Average Calories Burned per Workout Type  
+6. **Gender-based Boxplot** – Calories per kg by Gender  
+7. **Correlation Heatmap** – Relationships among numeric features  
+8. **Feature Importance Plot** – Top factors affecting calorie burn  
 
-## ✅ Next Steps & Improvements  
-- Automate dataset ingestion and cleaning for new or updated data.  
-- Add more advanced modeling (e.g., classification or regression on lifecycle outcomes).  
-- Build an interactive dashboard (e.g., using Streamlit or Dash) for exploring visuals.  
-- Document code functions more thoroughly and modularize sections for reuse.
+---
 
-## 👤 Author  
-Siya Lalwani — Integrated MSc in Computer Science at Gujarat University  
+## 🧩 Machine Learning Models
+- **Random Forest Regressor**  
+  - Predicts total calories burned.  
+  - Evaluated using R² and MAE scores.  
+- **Random Forest Classifier**  
+  - Predicts whether a workout session “Burns Calories” significantly.  
+  - Evaluated using a classification report.  
 
-## 📄 License  
-Specify your license here (e.g., MIT, GPL) if you plan to open‑source.
+---
+
+
+---
+
+## 🚀 Results Summary  
+- Regression model achieved **good accuracy** (R² around ~0.8–0.9, depending on dataset).  
+- Classification model showed **balanced performance** across calorie burn categories.  
+- Top predictors included **Average BPM**, **Duration**, and **Workout Type**.  
+
+---
+
+## 💡 Learnings  
+This project strengthens understanding of:
+- Exploratory Data Analysis (EDA)  
+- Data preprocessing and visualization  
+- Building and evaluating regression/classification models  
+- Feature importance interpretation  
+
+---
