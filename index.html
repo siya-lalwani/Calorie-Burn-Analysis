@@ -46,8 +46,7 @@
     }
 
     .meta {
-      color: var(--muted);
-      font-size: 14px;
+      font-size: 20px;
     }
 
     .card {
@@ -167,7 +166,7 @@
     <header>
       <div>
         <h1>Calories Burn Analysis</h1>
-        <div class="meta">An end-to-end data science project — EDA, feature engineering & regression modelling</div>
+        <div class="meta">An end-to-end data science project — EDA, classification & regression modelling</div>
       </div>
     </header>
 
@@ -215,7 +214,7 @@
           <h3>Distribution of Calories Burned</h3>
           <img src="graphs/calories_hist.png" alt="Calories Distribution">
           <div class="meta">
-            <h6>Interpretation</h6>
+            <h3>Interpretation</h3>
             <ul>
               <li>Most workouts fall in a moderate calorie-burn range — balanced intensity.</li>
               <li>Slight right skew shows a few high-burn sessions (HIIT/Cardio).</li>
@@ -228,7 +227,7 @@
           <h3>Calories Burned by Workout Type</h3>
           <img src="graphs/calories_boxplot.png" alt="Boxplot of Workout Types">
           <div class="meta">
-            <h6>Interpretation</h6>
+            <h3>Interpretation</h3>
             <ul>
               <li>Cardio and HIIT show highest medians, confirming efficiency for calorie burn.</li>
               <li>Yoga and Stretching display smaller calorie ranges — low-intensity workouts.</li>
@@ -241,7 +240,7 @@
           <h3>Calories Burned vs Average BPM</h3>
           <img src="graphs/calories_scatterplot.png" alt="Calories vs BPM">
           <div class="meta">
-            <h6>Interpretation</h6>
+            <h3>Interpretation</h3>
             <ul>
               <li>Positive correlation: higher heart rates lead to higher calories burned.</li>
               <li>Longer sessions (larger points) confirm both duration & intensity matter.</li>
@@ -254,7 +253,7 @@
           <h3>Feature Importance Plot</h3>
           <img src="graphs/feature_importance_barplot.png" alt="Feature Importance">
           <div class="meta">
-            <h6>Interpretation</h6>
+            <h3>Interpretation</h3>
             <ul>
               <li>Average BPM and Session Duration are top predictors.</li>
               <li>Weight and Workout Type add meaningful impact.</li>
@@ -285,7 +284,7 @@
       <img src="graphs/corr_heatmap.png" alt="Correlation Heatmap">
 
       <div class="meta">
-        <h6>Interpretation</h6>
+        <h3>Interpretation</h3>
         <ul>
           <li>High R² (≈0.85–0.9) → model explains most calorie-burn variance.</li>
           <li>Low MAE (≈20–30) → predictions are close to real-world values.</li>
@@ -332,7 +331,7 @@
       </table>
 
       <div class="meta">
-        <h6>Interpretation</h6>
+        <h3>Interpretation</h3>
         <ul>
           <li>Balanced precision & recall → consistent model performance.</li>
           <li>Confirms classifier learned meaningful calorie-related distinctions.</li>
