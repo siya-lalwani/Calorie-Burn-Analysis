@@ -1,157 +1,349 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Life Cycle Project — Overview</title>
+  <title>Calories Burn Analysis — Overview</title>
   <style>
-    :root{--bg:#fffaf0;--card:#ffffff;--muted:#6b6b6b;--accent:#f092b2;--accent-2:#fff599;--glass:rgba(255,255,255,0.7)}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(180deg,#fffaf0 0%, #fff 100%); color:#111; margin:0; padding:32px}
-    .container{max-width:960px;margin:0 auto}
-    header{display:flex;align-items:center;gap:16px}
-    header h1{margin:0;font-size:28px}
-    .meta{color:var(--muted);font-size:14px}
-    .card{background:var(--card);border-radius:12px;padding:20px;margin-top:20px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-    h2{margin-top:0}
-    table{width:100%;border-collapse:collapse;margin:12px 0}
-    th,td{text-align:left;padding:8px;border-bottom:1px solid #f0f0f0}
-    .placeholder{display:flex;align-items:center;justify-content:center;height:260px;border:2px dashed #eee;border-radius:8px;background:#fbfbfb;color:#999;font-weight:600}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .full{grid-column:1/-1}
-    .metrics{display:flex;gap:16px}
-    .metric{background:linear-gradient(180deg, var(--glass), transparent);border-radius:8px;padding:12px;flex:1;text-align:center}
-    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
-    a.repo{color:#1b6ca8;text-decoration:none;font-weight:600}
-    @media(max-width:720px){.grid{grid-template-columns:1fr}.placeholder{height:200px}}
+    :root {
+      --bg: #fffaf0;
+      --card: #ffffff;
+      --muted: #6b6b6b;
+      --accent: #f092b2;
+      --accent-2: #fff599;
+      --border: #f2f2f2;
+      --shadow: rgba(0, 0, 0, 0.06);
+      --glass: rgba(255, 255, 255, 0.8);
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #fffaf0 0%, #fff 100%);
+      color: #111;
+      margin: 0;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #000; /* changed to plain black */
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 24px;
+      box-shadow: 0 8px 20px var(--shadow);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333;
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    h3 {
+      color: #444;
+      margin-bottom: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: #fff9f9;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .metric {
+      background: linear-gradient(180deg, var(--glass), transparent);
+      border-radius: 8px;
+      padding: 16px;
+      flex: 1;
+      text-align: center;
+      min-width: 200px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    a.repo {
+      color: #1b6ca8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a.repo:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 720px) {
+      .card {
+        padding: 18px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      img {
+        height: auto;
+      }
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <header>
       <div>
-        <h1>🧬 Life Cycle Project</h1>
-        <div class="meta">An end-to-end data science project: EDA, feature engineering, and regression modelling.</div>
+        <h1>Calories Burn Analysis</h1>
+        <div class="meta">An end-to-end data science project — EDA, feature engineering & regression modelling</div>
       </div>
     </header>
 
     <section class="card">
-      <h2>🎯 Objective</h2>
-      <p>
-        Explore relationships between physical attributes (height, weight, BMI) and <strong>Calories_Burned</strong> using
-        feature engineering, exploratory data analysis (EDA), and a Random Forest regression model. This page documents the
-        project overview and includes placeholders for the key visualizations you produced.
-      </p>
-      <p class="meta">Repository: <a class="repo" href="https://github.com/siya-lalwani/life-cycle-project" target="_blank">github.com/siya-lalwani/life-cycle-project</a></p>
-    </section>
-
-    <section class="card">
-      <h2>📂 Dataset Overview</h2>
-      <p><strong>File</strong>: <code>Final_data.csv</code></p>
-      <table>
-        <thead>
-          <tr><th>Feature</th><th>Description</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Weight (kg)</td><td>Individual's weight in kilograms</td></tr>
-          <tr><td>Height (m)</td><td>Individual's height in meters</td></tr>
-          <tr><td>Calories_Burned</td><td>Target variable — total calories burned</td></tr>
-          <tr><td>BMI</td><td>Derived: <code>Weight / (Height^2)</code></td></tr>
-          <tr><td>cal_per_kg</td><td>Derived: <code>Calories_Burned / Weight (kg)</code></td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="card">
-      <h2>⚙️ Data Preparation & Feature Engineering</h2>
+      <h2>Project Overview</h2>
       <ul>
-        <li>Computed <strong>BMI</strong> and <strong>cal_per_kg</strong> to capture normalized relationships.</li>
-        <li>Selected numeric features with <code>select_dtypes(include=['float64','int64'])</code> and removed the target column before modelling.</li>
-        <li>Handled missing values and ensured numeric types for modelling.</li>
+        <li>Explores fitness data to analyze how workout types, gender, body metrics, and heart rate influence calories burned.</li>
+        <li>Uses visualization and machine learning to reveal key patterns affecting calorie expenditure.</li>
+        <li>Includes both regression (predicting calories) and classification (categorizing burn levels).</li>
+      </ul>
+      <p class="meta">Repository: <a class="repo" href="https://github.com/siya-lalwani/calorie-burn-analysis" target="_blank">github.com/siya-lalwani/calorie-burn-analysis</a></p>
+    </section>
+
+    <section class="card">
+      <h2>Objectives</h2>
+      <ul>
+        <li>Understand relationships between workout parameters and calorie burn.</li>
+        <li>Visualize calorie distribution, workout comparison, and gender-based trends.</li>
+        <li>Generate correlation heatmaps to identify numeric dependencies.</li>
+        <li>Build:
+          <ul>
+            <li>Random Forest Regressor for calorie prediction.</li>
+            <li>Random Forest Classifier for calorie burn categorization.</li>
+          </ul>
+        </li>
+        <li>Identify key predictors using feature importance analysis.</li>
       </ul>
     </section>
 
     <section class="card">
-      <h2>📊 Exploratory Data Analysis (EDA)</h2>
+      <h2>Technologies Used</h2>
+      <ul>
+        <li><b>Python</b></li>
+        <li><b>Pandas, NumPy</b> — Data cleaning & manipulation</li>
+        <li><b>Matplotlib, Seaborn</b> — Visualization</li>
+        <li><b>Scikit-learn</b> — Modeling & evaluation</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Key Visualizations</h2>
+
       <div class="grid">
-        <div class="full">
-          <h3>🔹 Correlation Matrix</h3>
-          <div class="placeholder" id="corr-heatmap">
-            <img src="C:\Users\siya dcs\OneDrive\Desktop\DS projects\Life Cycle\graphs\corr_heatmap.png" alt="">
+        <div>
+          <h3>Distribution of Calories Burned</h3>
+          <img src="graphs/calories_hist.png" alt="Calories Distribution">
+          <div class="meta">
+            <h6>Interpretation</h6>
+            <ul>
+              <li>Most workouts fall in a moderate calorie-burn range — balanced intensity.</li>
+              <li>Slight right skew shows a few high-burn sessions (HIIT/Cardio).</li>
+              <li>Calorie burn varies significantly with session type and intensity.</li>
+            </ul>
           </div>
-          <p class="meta">Explanation: The heatmap shows pairwise correlations between numeric variables. Use it to identify features strongly associated with <code>Calories_Burned</code> (e.g., Weight, BMI).</p>
         </div>
 
         <div>
-          <h3>🔹 Distribution of Calories Burned</h3>
-          <div class="placeholder">
-            <img src="C:\Users\siya dcs\OneDrive\Desktop\DS projects\Life Cycle\graphs\calories_hist.png" alt="">
+          <h3>Calories Burned by Workout Type</h3>
+          <img src="graphs/calories_boxplot.png" alt="Boxplot of Workout Types">
+          <div class="meta">
+            <h6>Interpretation</h6>
+            <ul>
+              <li>Cardio and HIIT show highest medians, confirming efficiency for calorie burn.</li>
+              <li>Yoga and Stretching display smaller calorie ranges — low-intensity workouts.</li>
+              <li>Variation within categories suggests effort and duration impact results.</li>
+            </ul>
           </div>
-          <p class="meta">Explanation: Use a histogram (or KDE) to inspect target distribution, check for skewness, and determine if transformation is needed.</p>
         </div>
 
         <div>
-          <h3>🔹 BMI vs Calories Burned</h3>
-          <div class="placeholder">
-           <img src="C:\Users\siya dcs\OneDrive\Desktop\DS projects\Life Cycle\graphs\calories_scatterplot.png" alt="">
+          <h3>Calories Burned vs Average BPM</h3>
+          <img src="graphs/calories_scatterplot.png" alt="Calories vs BPM">
+          <div class="meta">
+            <h6>Interpretation</h6>
+            <ul>
+              <li>Positive correlation: higher heart rates lead to higher calories burned.</li>
+              <li>Longer sessions (larger points) confirm both duration & intensity matter.</li>
+              <li>HIIT & Cardio dominate high-BPM zones — validating physiological patterns.</li>
+            </ul>
           </div>
-          <p class="meta">Explanation: Scatter plot to visually assess whether higher BMI corresponds to higher calorie expenditure and to detect outliers.</p>
         </div>
 
         <div>
-          <h3>🔹 Weight vs Calories Burned</h3>
-          <div class="placeholder">
-            <img src="C:\Users\siya dcs\OneDrive\Desktop\DS projects\Life Cycle\graphs\calories_barplot.png" alt="">
+          <h3>Feature Importance Plot</h3>
+          <img src="graphs/feature_importance_barplot.png" alt="Feature Importance">
+          <div class="meta">
+            <h6>Interpretation</h6>
+            <ul>
+              <li>Average BPM and Session Duration are top predictors.</li>
+              <li>Weight and Workout Type add meaningful impact.</li>
+              <li>Confirms both physiological and workout-related features drive predictions.</li>
+            </ul>
           </div>
-          <p class="meta">Explanation: Confirms correlation strength between weight and calorie burn and helps decide feature importance.</p>
         </div>
       </div>
     </section>
 
     <section class="card">
-      <h2>🤖 Model Building</h2>
-      <p>
-        <strong>Algorithm:</strong> RandomForestRegressor (scikit-learn).<br />
-        <strong>Workflow:</strong> Train/test split (80/20, <code>random_state=42</code>), fit model on training set, predict on test set, and evaluate using R² and MAE.
+      <h2>Model Metrics & Interpretation</h2>
+      <p><strong>Algorithm:</strong> Random Forest Regressor<br>
+        <strong>Workflow:</strong> 80/20 train-test split (<code>random_state=42</code>), trained and evaluated using R² and MAE.
       </p>
 
       <div class="metrics">
         <div class="metric">
-          <div style="font-size:20px;font-weight:700">R² Score</div>
-          <div class="meta">How much variance the model explains (1.0 = perfect)</div>
+          <div style="font-size:22px;font-weight:700">R² Score</div>
+          <div class="meta">Measures how much variance is explained (1.0 = perfect)</div>
         </div>
         <div class="metric">
-          <div style="font-size:20px;font-weight:700">MAE</div>
-          <div class="meta">Average absolute difference between actual and predicted calories</div>
+          <div style="font-size:22px;font-weight:700">MAE</div>
+          <div class="meta">Average absolute difference between predicted & actual calories</div>
         </div>
       </div>
 
-      <h3 style="margin-top:16px">🔹 Actual vs Predicted</h3>
-        <img src="C:\Users\siya dcs\OneDrive\Desktop\DS projects\Life Cycle\graphs\calories_scatterplot.png" alt="">
-      <p class="meta">Explanation: Points near the diagonal line indicate accurate predictions. Use this plot to spot systematic errors and heteroscedasticity.</p>
-    </section>
+      <img src="graphs/corr_heatmap.png" alt="Correlation Heatmap">
 
-    <section class="card">
-      <h2>🧠 Key Insights</h2>
-      <ul>
-        <li>Weight and BMI show notable correlation with <code>Calories_Burned</code>.</li>
-        <li>Derived features (BMI, cal_per_kg) improve interpretability and can help modelling.</li>
-        <li>Random Forest provided robust predictions; further tuning may improve accuracy.</li>
-      </ul>
-    </section>
+      <div class="meta">
+        <h6>Interpretation</h6>
+        <ul>
+          <li>High R² (≈0.85–0.9) → model explains most calorie-burn variance.</li>
+          <li>Low MAE (≈20–30) → predictions are close to real-world values.</li>
+        </ul>
+      </div>
 
-    <section class="card">
-      <h2>🚀 Next Steps & Improvements</h2>
-      <ol>
-        <li>Hyperparameter tuning (GridSearchCV / RandomizedSearchCV) for RandomForest.</li>
-        <li>Try other regressors (Gradient Boosting, XGBoost) and compare.</li>
-        <li>Cross-validation, residual analysis, and error distribution plots.</li>
-        <li>Build an interactive dashboard (Streamlit) to make predictions on new data.</li>
-      </ol>
+      <p><strong>Algorithm:</strong> Random Forest Classifier<br>
+        <strong>Workflow:</strong> Classified sessions into “High” / “Low” calorie burns. Evaluated using precision, recall, and F1-score.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Class</th>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>F1-score</th>
+            <th>Support</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>High</td><td>1.00</td><td>1.00</td><td>1.00</td><td>998</td>
+          </tr>
+          <tr>
+            <td>Low</td><td>1.00</td><td>1.00</td><td>1.00</td><td>994</td>
+          </tr>
+          <tr>
+            <td>Medium</td><td>1.00</td><td>1.00</td><td>1.00</td><td>970</td>
+          </tr>
+          <tr>
+            <td>Very High</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1038</td>
+          </tr>
+          <tr style="font-weight:bold;background:#f0f0f0;">
+            <td>Accuracy</td><td colspan="3" style="text-align:center;">1.00</td><td>4000</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td>Macro Avg</td><td>1.00</td><td>1.00</td><td>1.00</td><td>4000</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td>Weighted Avg</td><td>1.00</td><td>1.00</td><td>1.00</td><td>4000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="meta">
+        <h6>Interpretation</h6>
+        <ul>
+          <li>Balanced precision & recall → consistent model performance.</li>
+          <li>Confirms classifier learned meaningful calorie-related distinctions.</li>
+        </ul>
+      </div>
     </section>
 
     <footer>
-      Built with ❤️ • <a class="repo" href="https://github.com/siya-lalwani/life-cycle-project" target="_blank">View on GitHub</a>
+      Built with ❤️ • <a class="repo" href="https://github.com/siya-lalwani/Calorie-Burn-Analysis/blob/main/calorie_burn_analysis.ipynb" target="_blank">View on GitHub</a>
     </footer>
   </div>
 </body>
+
 </html>
